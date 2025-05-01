@@ -1,33 +1,237 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Local vs Git Remoto</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+    .table-container {
+      overflow-x: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      background: white;
+    }
 
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    tr:hover {
+      background-color: #e8f4fc;
+    }
+
+    .local {
+      background-color: #e3f2fd;
+    }
+
+    .remote {
+      background-color: #e8f5e9;
+    }
+
+    .emoji {
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    .feature {
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      gap: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+    }
+
+    .local-legend {
+      background-color: #e3f2fd;
+    }
+
+    .remote-legend {
+      background-color: #e8f5e9;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #search {
+      padding: 10px 15px;
+      width: 60%;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 1em;
+      outline: none;
+    }
+
+    #search:focus {
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+
+    .highlight {
+      background-color: #fffde7;
+      font-weight: bold;
+    }
+  </style>
 </head>
-
 <body>
+<h1>🔍 Tabla Comparativa: Git Local vs Git Remoto 🔍</h1>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+<div class="search-container">
+  <input type="text" id="search" placeholder="Buscar características... 🔎">
+</div>
 
+<div class="legend">
+  <div class="legend-item local-legend">🗂️ Git Local</div>
+  <div class="legend-item remote-legend">🌐 Git Remoto</div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+    <tr>
+      <th>Característica</th>
+      <th>Git Local 🗂️</th>
+      <th>Git Remoto 🌐</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="feature">📍 Ubicación</td>
+      <td class="local">📌 En tu computadora personal</td>
+      <td class="remote">🖥️ En un servidor externo (GitHub, GitLab, etc.)</td>
+    </tr>
+    <tr>
+      <td class="feature">⚡ Velocidad</td>
+      <td class="local">🚀 Operaciones instantáneas (no necesita conexión a red)</td>
+      <td class="remote">⌛ Depende de la velocidad de tu conexión a Internet</td>
+    </tr>
+    <tr>
+      <td class="feature">🔒 Acceso</td>
+      <td class="local">👤 Solo tú puedes acceder</td>
+      <td class="remote">👥 Múltiples colaboradores pueden acceder</td>
+    </tr>
+    <tr>
+      <td class="feature">🔄 Colaboración</td>
+      <td class="local">🚫 No permite colaboración directa</td>
+      <td class="remote">🤝 Facilita el trabajo en equipo</td>
+    </tr>
+    <tr>
+      <td class="feature">💾 Almacenamiento</td>
+      <td class="local">💽 Solo en tu máquina local</td>
+      <td class="remote">☁️ Servidor en la nube con copia de seguridad</td>
+    </tr>
+    <tr>
+      <td class="feature">📋 Comandos principales</td>
+      <td class="local">git init, git add, git commit</td>
+      <td class="remote">git clone, git push, git pull, git fetch</td>
+    </tr>
+    <tr>
+      <td class="feature">🛡️ Seguridad</td>
+      <td class="local">⚠️ Depende de tu máquina (riesgo de pérdida de datos)</td>
+      <td class="remote">🔐 Generalmente más seguro con autenticación y backups</td>
+    </tr>
+    <tr>
+      <td class="feature">📚 Historial</td>
+      <td class="local">📓 Solo tu historial local</td>
+      <td class="remote">📖 Historial completo del proyecto compartido</td>
+    </tr>
+    <tr>
+      <td class="feature">🛠️ Uso típico</td>
+      <td class="local">✏️ Desarrollo individual, cambios locales</td>
+      <td class="remote">🏗️ Integración de cambios, despliegues, CI/CD</td>
+    </tr>
+    <tr>
+      <td class="feature">🔗 Dependencia</td>
+      <td class="local">❌ No necesita repositorio remoto</td>
+      <td class="remote">✅ Necesita un repositorio local para interactuar</td>
+    </tr>
+    <tr>
+      <td class="feature">📦 Tamaño</td>
+      <td class="local">📏 Solo lo que necesitas para trabajar</td>
+      <td class="remote">📦 Contiene todo el proyecto y su historia</td>
+    </tr>
+    <tr>
+      <td class="feature">🔄 Sincronización</td>
+      <td class="local">🔄 git fetch/merge para actualizar con remoto</td>
+      <td class="remote">⏫ git push para enviar cambios locales</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.getElementById('search').addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (searchTerm === '' || text.includes(searchTerm)) {
+        row.style.display = '';
+
+        // Resaltar el texto encontrado
+        if (searchTerm !== '') {
+          const cells = row.querySelectorAll('td');
+          cells.forEach(cell => {
+            const originalText = cell.textContent;
+            const highlightedText = originalText.replace(
+              new RegExp(searchTerm, 'gi'),
+              match => `<span class="highlight">${match}</span>`
+            );
+            cell.innerHTML = highlightedText;
+          });
+        }
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>
 </body>
-
 </html>
